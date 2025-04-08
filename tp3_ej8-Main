@@ -1,0 +1,76 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package alumnos;
+import java.util.Scanner;
+/**
+ *
+ * @author Usuario
+ */
+public class Alumnos {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int cant,aux;
+        String auxS;
+        System.out.print("Cuantos alumnos a distancia desea agregar? ");
+        cant = sc.nextInt();
+        
+        Fecha auxFecha = new Fecha();
+        EstudianteADistancia es[] = new EstudianteADistancia[cant];
+        
+        for(int i = 0;i<cant;i++){
+            es[i] = new EstudianteADistancia(); 
+            System.out.println("---------- Estudiante n°" + i + " ----------");
+            System.out.print("Ingrese el nombre del estudiante: ");
+            auxS = sc.next();
+            sc.nextLine();
+            es[i].setNombre(auxS);
+            System.out.print("Ingrese el dia de nacimiento: ");
+            aux = sc.nextInt();
+            auxFecha.setDia(aux);
+            System.out.print("Ingrese el mes de nacimiento: ");
+            aux = sc.nextInt();
+            auxFecha.setMes(aux);
+            System.out.print("Ingrese el año de nacimiento: ");
+            aux = sc.nextInt();
+            auxFecha.setAnio(aux); 
+            es[i].setFecha(auxFecha);
+            System.out.print("Ingrese el estado civil: ");
+            auxS = sc.next();
+            sc.nextLine();
+            es[i].setEstadoCivil(auxS);
+            System.out.print("Ingrese el DNI: ");
+            aux = sc.nextInt();
+            es[i].setNumDocumento(aux);
+            System.out.print("Ingrese la carrera a la que se inscribió: ");
+            auxS = sc.next();
+            sc.nextLine();
+            es[i].setCarrera(auxS);
+            System.out.print("Ingrese el año del cursado: ");
+            aux = sc.nextInt();
+            es[i].setAnioCursada(aux);
+            System.out.print("Ingrese el usuario: ");
+            auxS = sc.next();
+            sc.nextLine();
+            es[i].setUsuario(auxS);
+            System.out.print("Ingrese la contraseña: ");
+            auxS = sc.next();
+            sc.nextLine();
+            es[i].setContraseña(auxS);
+            System.out.print("Ingrese la ciudad del estudiante: ");
+            auxS = sc.next();
+            sc.nextLine();
+            es[i].setCiudad(auxS);
+        }
+       System.out.println("--------------------------- TODOS LOS ESTUDIANTES ---------------------------");
+       for(int i = 0; i < cant; i++){
+           System.out.println(es[i]);
+        }   
+    }
+    
+}
