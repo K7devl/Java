@@ -1,0 +1,70 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package p5_pnose;
+import java.util.Scanner;
+import java.util.Collections;
+import java.util.Map;
+import java.util.HashMap;
+
+
+/**
+ *
+ * @author Usuario
+ */
+public class P5_pnose {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        HashMap<String, Palabras> dic = new HashMap<>();
+        
+        
+        int sel, i;
+        
+        String palabra, significado;
+        
+        do{
+            System.out.println("1. Ingresar palabras con significados\n2. Consultar palabra\n3. Eliminar palabra\n4. Consultar numero de palabras\n5. Imprimir diccionario\n6. Salir\n");
+            sel = sc.nextInt();
+            sc.nextLine();
+            switch(sel){
+                case 1:{
+                    Palabras dicc = new Palabras();
+                    System.out.println("Ingrese la palabra que desea agregar: ");
+                    palabra = sc.nextLine();
+                    dicc.setPalabra(palabra);
+                    System.out.println("Ingrese el signidicado de la palabra que desea agregar: ");
+                    significado = sc.nextLine();
+                    dicc.setSignificado(significado);
+                    dic.put(palabra, dicc);
+                    break;}
+                    
+                case 2:{ 
+                    System.out.println("Ingrese la palabra que desea consultar");
+                    palabra = sc.nextLine();
+                    if(dic.containsKey(palabra)){
+                        System.out.println(palabra + ": " + dic.get(palabra));
+                    }
+                    break;}
+                    
+                case 3: {
+                    System.out.println("Ingrese la palabra que desea consultar");
+                    palabra = sc.nextLine();
+                    if(dic.containsKey(palabra)){
+                        dic.remove(palabra);
+                    }
+                    break;}
+                    
+                case 4: {
+                    System.out.println("La cantidad de palabras del diccionario es de: "+ dic.size());
+                    break;}
+                    
+                case 5: {
+                    System.out.println(dic.toString());
+                    break;}
+                    
+                    
+            }
+        }while(sel != 6);
+    }
+}
